@@ -1,0 +1,20 @@
+from aoc import read_lines
+from collections import Counter
+
+sample=read_lines("data/00-sample.txt")
+input_text=read_lines("data/00.txt")
+
+def parse(lines:list)->list[]:
+    result = []
+    return result
+
+def part1(commands:list[])->int:
+    return 0
+
+# def part2(commands:list[])->int:
+#     return 0
+
+print("p1 sample: ", part1(parse(sample)))
+# print("p1", part1(parse(input_text)))
+# print("p2 sample: ", part2(parse(sample)))
+# print("p2: ", part2(parse(input_text)))
