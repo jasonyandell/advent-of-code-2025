@@ -13,9 +13,9 @@ def max_joltage(nums:list[int], depth=12)->int:
         # look at choices
         window = nums[pos:len(nums) - remaining_choices + 1]
 
-        # find position and index of max choice
-        value, next = max((v,i) for i, v in enumerate(window, pos))
-        pos = next + 1 
+        # find value and index of max choice
+        value, next_index = max((v,i) for i, v in enumerate(window, pos))
+        pos = next_index + 1 
 
         # update total
         total = total * 10 + value
