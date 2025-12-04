@@ -12,20 +12,15 @@ def parse(lines:list)->set[tuple[int,int]]:
                 x.add((r,c))
     return x
 
-
 def count_neighbors(board:set[tuple[int,int]], pos):
     r,c = pos
     neighbors = set([(r-1, c-1), (r-1, c), (r-1, c+1), (r, c-1),(r, c+1), (r+1, c-1), (r+1, c), (r+1, c+1)])
     intersect = board.intersection(neighbors)
     return len(intersect)
 
-def reachable_walls(board:set[tuple[int,int]])->set[tuple[int,int]]:
-    map: defaultdict[tuple[int,int], int] = defaultdict(int) 
-    for pos in board:
-        map[pos] = count_neighbors(board, pos)
-    filtered = set([pos for pos in board if map[pos] >= 4])
-    remaining = board - filtered
-    return remaining
+def reachable_walls(board: set[tuple[int, int]]) -> set[tuple[int, int]]:
+    neighbors = {pos: count_neighbors(board, pos) for pos in board}
+    return {pos for pos in board if neighbors[pos] < 4}
 
 def part1(board:set[tuple[int,int]])->int:
     return len(reachable_walls(board))
