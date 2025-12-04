@@ -10,14 +10,13 @@ def parse(lines:list)->list[list[int]]:
 def max_joltage(nums:list[int], depth=12)->int:
     pos, total = 0, 0
     for remaining_choices in range(depth, 0, -1):
-        # look at choices
-        window = nums[pos:len(nums) - remaining_choices + 1]
-
-        # find value and index of max choice
-        value, next_index = max((v,i) for i, v in enumerate(window, pos))
+        choices = nums[pos:len(nums) - remaining_choices + 1]
+        best_value, next_index = max((value, index) 
+                                     for index, value in 
+                                     enumerate(choices, pos))
 
         pos = next_index + 1 
-        total = total * 10 + value
+        total = total * 10 + best_value
 
     return total
 
