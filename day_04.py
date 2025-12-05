@@ -4,13 +4,13 @@ from collections import Counter, defaultdict
 sample=read_lines("data/04-sample.txt")
 input_text=read_lines("data/04.txt")
 
-def parse(lines:list)->set[tuple[int,int]]:
-    x = set()
-    for (r,line) in enumerate(lines):
-        for (c, curr) in enumerate(line):
-            if (curr != '.'):
-                x.add((r,c))
-    return x
+def parse(lines: list) -> set[tuple[int, int]]:
+    return {
+        (r, c)
+        for r, line in enumerate(lines)
+        for c, ch in enumerate(line)
+        if ch != '.'
+    }
 
 def count_neighbors(board:set[tuple[int,int]], pos):
     r,c = pos
