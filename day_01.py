@@ -1,4 +1,4 @@
-from aoc import read_lines
+from helpers import read_lines
 from collections import Counter
 
 part1_sample=read_lines("data/01-sample.txt")

@@ -1,0 +1,1 @@
+Use `source activate.sh` before running python

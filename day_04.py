@@ -1,4 +1,4 @@
-from aoc import read_lines
+from helpers import read_lines
 from collections import Counter, defaultdict
 
 sample=read_lines("data/04-sample.txt")
